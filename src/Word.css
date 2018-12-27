@@ -12,5 +12,14 @@ span:hover {
   background-color: #cfc;
 }
 .Nomen_help{
-  background-color: #f33;
+  background-color: #009;
+  color: #fff;
+}
+.Verb_help{
+  background-color: #900;
+  color: #fff;
+}
+.Adjektiv_help{
+  background-color: #090;
+  color: #fff;
 }
