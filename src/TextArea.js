@@ -6,11 +6,11 @@ export default class TextArea extends Component {
 
     state = {
         points: 0,
-        text: "Vor einem v-großen n-Wald v-wohnte ein a-armer n-Holzhacker"
+        text: "Vor einem a-großen n-Wald v-wohnte ein a-armer n-Holzhacker"
     };
 
     /*
-     "Vor einem v-großen n-Wald v-wohnte ein a-armer n-Holzhacker mit seiner n-Frau und seinen a-zwei n-Kindern. Der n-Junge hieß n-Hänsel und das n-Mädchen n-Gretel. " +
+     "Vor einem a-großen n-Wald v-wohnte ein a-armer n-Holzhacker mit seiner n-Frau und seinen a-zwei n-Kindern. Der n-Junge hieß n-Hänsel und das n-Mädchen n-Gretel. " +
             "Er v-hatte wenig zu v-beißen und zu v-brechen, und einmal, als eine a-große n-Hungersnot ins n-Land v-kam, v-konnte er auch das a-tägliche n-Brot nicht mehr v-bezahlen. " +
             "Wie er sich nun abends im n-Bett n-Gedanken v-machte und sich vor n-Sorgen v-herumwälzte, v-seufzte er und v-sprach zu seiner n-Frau: " +
             "'Was v-soll nur aus uns v-werden? Wie v-können wir unsere a-armen n-Kinder v-ernähren, da wir für uns selbst nichts mehr v-haben?' " +

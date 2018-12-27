@@ -12,11 +12,21 @@ class Footer extends Component {
         store.help();
     }
 
+    nextLevel = () => {
+        const {store} = this.props;
+        store.nextLevel();
+    }
+
     renderButtons = () => {
         const {store} = this.props;
         let remaining = store.getRemaining();
         if (remaining === 0) {
-            return (<button onClick={this.nextLevel}>Zur nächsten Wortart wechseln</button>);
+            if (store.appState.mode === 'Adjektiv') {
+                return (<div>Gewonnen!</div>);
+            }
+            else {
+                return (<button onClick={this.nextLevel}>Zur nächsten Wortart wechseln</button>);
+            }
         }
         else {
             return (<button onClick={this.help}>Hilfe</button>);
