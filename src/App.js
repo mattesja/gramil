@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 class App extends Component {
 
-    xcomponentDidMount() {
+    componentDidMount() {
         window.addEventListener('beforeunload', function (e) {
             // Cancel the event
             e.preventDefault();

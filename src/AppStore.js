@@ -23,7 +23,7 @@ class AppStore {
         else {
             this.appState.count--;
             let audio = new Audio('/sounds/nein.mp3');
-            // await audio.play();
+            await audio.play();
         }
     };
 
