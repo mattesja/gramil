@@ -5,6 +5,12 @@ span:hover {
 .Nomen,span.Nomen:hover{
   background-color: #ccf;
 }
+.Verb,span.Verb:hover{
+  background-color: #fcc;
+}
+.Adjektiv,span.Adjektiv:hover{
+  background-color: #cfc;
+}
 .Nomen_help{
   background-color: #f33;
 }

@@ -12,6 +12,17 @@ class Footer extends Component {
         store.help();
     }
 
+    renderButtons = () => {
+        const {store} = this.props;
+        let remaining = store.getRemaining();
+        if (remaining === 0) {
+            return (<button onClick={this.nextLevel}>Zur nächsten Wortart wechseln</button>);
+        }
+        else {
+            return (<button onClick={this.help}>Hilfe</button>);
+        }
+    }
+
     render() {
         const {store} = this.props;
 
@@ -21,19 +32,20 @@ class Footer extends Component {
                     Suche nach {store.appState.mode}
                 </div>
                 <div className="Footer-left">
-                    <button onClick={this.help}>Hilfe</button>
+                    {this.renderButtons()}
                 </div>
                 <div className="Footer-right">
                     <div className="Points">
                         Punkte: {store.appState.count}
                     </div>
-                    <div className="remaining">
+                    <div className="Footer-remaining">
                         Noch übrig {store.getRemaining()}
                     </div>
                 </div>
             </div>
         );
     }
+
 }
 
 export default Footer;

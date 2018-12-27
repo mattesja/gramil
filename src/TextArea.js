@@ -6,17 +6,22 @@ export default class TextArea extends Component {
 
     state = {
         points: 0,
-        text: "Vor einem großen n-Wald wohnte ein armer n-Holzhacker mit seiner n-Frau und seinen zwei n-Kindern. Der n-Junge hieß n-Hänsel und das n-Mädchen n-Gretel. " +
-            "Er hatte wenig zu beißen und zu brechen, und einmal, als eine große n-Hungersnot ins n-Land kam, konnte er auch das tägliche n-Brot nicht mehr bezahlen. " +
-            "Wie er sich nun abends im n-Bett n-Gedanken machte und sich vor n-Sorgen herumwälzte, seufzte er und sprach zu seiner n-Frau: " +
-            "'Was soll nur aus uns werden? Wie können wir unsere armen n-Kinder ernähren, da wir für uns selbst nichts mehr haben?' " +
-            "'Weißt du was?', antwortete die n-Frau, 'wir wollen morgen früh die n-Kinder hinaus in den n-Wald führen, wo er am dicksten ist. " +
-            "Da machen wir ihnen ein n-Feuer an und geben jedem noch ein n-Stückchen n-Brot. Dann gehen wir an unsere n-Arbeit und lassen sie allein. " +
-            "Sie finden den n-Weg nicht wieder nach n-Haus und wir sind sie los.' " +
-            "'Nein', sagte der n-Mann, 'das tue ich nicht! Wie sollt ichs übers n-Herz bringen meine n-Kinder im n-Wald allein zu lassen? " +
-            "Die wilden n-Tiere würden bald kommen und sie zerreißen.' 'O du n-Narr,' sagte sie, 'dann müssen wir alle n-Viere am n-Hunger sterben. " +
-            "Du kannst nur die n-Bretter für die n-Särge hobeln.' Und sie ließ ihm keine n-Ruhe bis er einwilligte."
+        text: "Vor einem v-großen n-Wald v-wohnte ein a-armer n-Holzhacker"
     };
+
+    /*
+     "Vor einem v-großen n-Wald v-wohnte ein a-armer n-Holzhacker mit seiner n-Frau und seinen a-zwei n-Kindern. Der n-Junge hieß n-Hänsel und das n-Mädchen n-Gretel. " +
+            "Er v-hatte wenig zu v-beißen und zu v-brechen, und einmal, als eine a-große n-Hungersnot ins n-Land v-kam, v-konnte er auch das a-tägliche n-Brot nicht mehr v-bezahlen. " +
+            "Wie er sich nun abends im n-Bett n-Gedanken v-machte und sich vor n-Sorgen v-herumwälzte, v-seufzte er und v-sprach zu seiner n-Frau: " +
+            "'Was v-soll nur aus uns v-werden? Wie v-können wir unsere a-armen n-Kinder v-ernähren, da wir für uns selbst nichts mehr v-haben?' " +
+            "'v-Weißt du was?', v-antwortete die n-Frau, 'wir v-wollen morgen früh die n-Kinder hinaus in den n-Wald v-führen, wo er am dicksten ist. " +
+            "Da machen wir ihnen ein n-Feuer an und geben jedem noch ein n-Stückchen n-Brot. Dann gehen wir an unsere n-Arbeit und lassen sie allein. " +
+            "Sie v-finden den n-Weg nicht wieder nach n-Hause und wir v-sind sie los.' " +
+            "'Nein', v-sagte der n-Mann, 'das v-tue ich nicht! Wie v-sollte ich es übers n-Herz v-bringen meine n-Kinder im n-Wald allein zu v-lassen? " +
+            "Die a-wilden n-Tiere v-werden bald v-kommen und sie v-zerreißen.' 'O du n-Narr,' sagte sie, 'dann v-müssen wir alle n-Viere am n-Hunger v-sterben. " +
+            "Du v-kannst nur die n-Bretter für die n-Särge v-hobeln.' Und sie v-ließ ihm keine n-Ruhe bis er v-einwilligte."
+    };
+     */
 
     getWords() {
         const {text} = this.state;
@@ -24,15 +29,32 @@ export default class TextArea extends Component {
     }
 
     mapWord = (word, index) => {
-        if (word.startsWith('n-')){
+        let type = this.getType(word);
+        if (type){
             let text = word.substring(2);
-            return (
-                <Word key={index} index={index} type='Nomen'>{text}</Word>
-            );
+            if (type === 'Nomen') {
+                return (<Word key={index} index={index} type='Nomen'>{text}</Word>);
+            } else if (type === 'Verb') {
+                return (<Word key={index} index={index} type='Verb'>{text}</Word>);
+            } else if (type === 'Adjektiv') {
+                return (<Word key={index} index={index} type='Adjektiv'>{text}</Word>);
+            }
         } else {
             return (
                 <Word key={index} index={index}>{word}</Word>
             );
+        }
+    }
+
+    getType = (word) => {
+        if (word.startsWith('n-')){
+            return 'Nomen';
+        } else if (word.startsWith('v-')){
+            return 'Verb';
+        } else if (word.startsWith('a-')){
+            return 'Adjektiv';
+        } else {
+            return undefined;
         }
     }
 

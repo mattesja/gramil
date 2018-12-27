@@ -71,6 +71,15 @@ class AppStore {
         }
     }
 
+    @action nextLevel = () => {
+        if (this.appState.mode === 'Nomen') {
+            this.appState.mode = 'Verb';
+        }
+        else if (this.appState.mode === 'Verb') {
+            this.appState.mode = 'Adjektiv';
+        }
+    }
+
 }
 
 const store = new AppStore();
