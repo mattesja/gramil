@@ -39,7 +39,7 @@ class Footer extends Component {
         return (
             <div className="Footer">
                 <div className="Label">
-                    Suche nach {store.appState.mode}
+                    Markiere alle {store.appState.mode}
                 </div>
                 <div className="Footer-left">
                     {this.renderButtons()}
