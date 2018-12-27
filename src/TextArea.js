@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
+import {inject, observer} from "mobx-react";
+
 import Word from './Word';
 import './TextArea.css';
 
-export default class TextArea extends Component {
+@inject('store')
+@observer
+class TextArea extends Component {
 
     state = {
         points: 0,
@@ -59,10 +63,18 @@ export default class TextArea extends Component {
     }
 
     render() {
+        const {store} = this.props;
+        let style = 'TextArea';
+        if (store.appState.error) {
+            style = style + ' Error';
+        }
+
         return (
-            <div className="TextArea">
+            <div className={style}>
                 {this.getWords().map(this.mapWord)}
             </div>
         );
     }
 }
+
+export default TextArea;

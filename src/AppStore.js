@@ -9,7 +9,8 @@ class AppStore {
     @observable appState = {
         count: 0,
         mode: 'Nomen',
-        status: {}
+        status: {},
+        error: false
     };
 
     @action check = async (type, index) => {
@@ -22,6 +23,9 @@ class AppStore {
         }
         else {
             this.appState.count--;
+            this.appState.error = true;
+            setTimeout(() => this.appState.error = false, 200);
+
             let audio = new Audio('/sounds/nein.mp3');
             await audio.play();
         }
