@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {inject, observer} from "mobx-react";
 
-import './Footer.css';
+import './Header-Footer.css';
 
 @inject('store')
 @observer
@@ -37,10 +37,7 @@ class Footer extends Component {
         const {store} = this.props;
 
         return (
-            <div className="Footer">
-                <div className="Label">
-                    Markiere alle {store.appState.mode}
-                </div>
+            <div className="Border">
                 <div className="Footer-left">
                     {this.renderButtons()}
                 </div>
