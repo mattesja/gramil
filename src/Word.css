@@ -1,0 +1,10 @@
+span:hover {
+  background-color: #ccc;
+}
+
+.Nomen,span.Nomen:hover{
+  background-color: #ccf;
+}
+.Nomen_help{
+  background-color: #f33;
+}

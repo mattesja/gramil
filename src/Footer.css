@@ -1,0 +1,24 @@
+.Footer {
+  width: 80%;
+  max-width: 600px;
+  height: 4em;
+  margin: auto;
+  background-color: #eee;
+  padding: 0em 2em 2em 2em;
+}
+
+.Footer-left {
+  float: left;
+}
+.Footer-right {
+  float: right;
+}
+
+.Label {
+  width: 100%;
+  padding: 1em 0em;
+}
+
+button {
+  font-size: 14pt;
+}
